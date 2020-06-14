@@ -1,0 +1,93 @@
+FORMAT: 1A
+HOST: http://localhost/
+
+# Laravel
+
+Endpoint is /api/v1
+
+## Public Collection [/]
+
+### Create Property [POST /property]
+
++ Request (application/json)
+
+        {
+            "suburb" => "required|string",
+            "state" => "required|string",
+            "country" => "required|string",
+        }
+
++ Response 200 (application/json)
+
+        {
+            "data": {},
+            "message": {}
+        }
+        
+### Get Analytics for Propertie [GET /property/{property_id}/analytic]
+
++ Response 200 (application/json)
+
+        {
+            "data": {},
+            "message": {}
+        }
+        
+### Add Analytic to Property [POST /property/{property_id}/analytic]
+
++ Request (application/json)
+
+        {
+            "analytic_type_id" => "required|numeric",
+            "value' => "required|string",
+        }
+
++ Response 200 (application/json)
+
+        {
+            "data": {},
+            "message": {}
+        }
+
+### Update Analytic of Property [POST /property/{property_id}/analytic/{analytic_id}]
+
++ Request (application/json)
+
+        {
+            "analytic_type_id" => "required|numeric",
+            "value' => "required|string",
+        }
+
++ Response 200 (application/json)
+
+        {
+            "data": {},
+            "message": {}
+        }
+
+### Get Analytics for suburb [GET /analytic/suburb/{suburb_name}]
+
++ Response 200 (application/json)
+
+        {
+            "data": {},
+            "message": {}
+        }
+
+### Get Analytics for state [GET /analytic/state/{state_name}]
+
++ Response 200 (application/json)
+
+        {
+            "data": {},
+            "message": {}
+        }
+
+### Get Analytics for country [GET /analytic/country/{country_name}]
+
++ Response 200 (application/json)
+
+        {
+            "data": {},
+            "message": {}
+        }

@@ -14,6 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('v1')->group(function() {
+    Route::prefix('property')->group(function() {
+        Route::post('/', 'PropertyController@create');
+
+        Route::prefix('{property}')->group(function() {
+            Route::prefix('analytic')->group(function() {
+                Route::get('/', 'AnalyticController@all');
+                Route::post('/', 'AnalyticController@create');
+                Route::put('{analytic}', 'AnalyticController@update');
+            });
+        });
+    });
+
+    Route::prefix('analytic')->group(function() {
+        Route::get('suburb/{suburb}', 'AnalyticController@suburbSummary');
+        Route::get('state/{suburb}', 'AnalyticController@stateSummary');
+        Route::get('country/{suburb}', 'AnalyticController@countrySummary');
+    });
 });
